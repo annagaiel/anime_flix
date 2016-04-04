@@ -1,6 +1,31 @@
 <h1>Movies</h1>
-<ul>
-  <% @movies.each do |movie| %>
-    <li><%= movie.title %></li>
-  <% end %>
-</ul>
+
+<% @movies.each do |movie| %>
+<article>
+  <header>
+    <h2><%= movie.title%></h2>
+  </header>
+  <p>
+    <%= movie.description %>
+  </p>
+
+  <table role="presentation">
+    <tr>
+      <td>Released on: </td>
+      <td><%= movie.released_on %></td>
+      </tr>
+    <tr>
+      <td>Total Gross:</td>
+      <td><%= number_to_currency(movie.total_gross) %></td>
+    </tr>
+    <tr>
+      <td>Rating:</td>
+      <td><%= movie.rating %></td>
+    </tr>
+  </table>
+
+</article>
+
+<% end %>
+
+
